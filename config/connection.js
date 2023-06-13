@@ -1,9 +1,8 @@
-const { connect, connection } = require('mongoose');
+const mongoose = require('mongoose');
 
-//edit the link
-connect('mongodb://localhost/userThoughtReaction', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+mongoose.connect('mongodb://localhost:3001/userThoughtDB', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
 
-module.exports = connection;
+module.exports = mongoose.connection;
