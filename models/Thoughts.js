@@ -1,6 +1,8 @@
 const {Schema, model, Types} = require("mongoose");
-const dateFormat = require("../utils/data");
+// require date.js for createdAt functionality
+const dateFormat = require("../utils/date");
 
+// create reaction schema
 const reactionSchema = new Schema(
     {
       reactionId: {
@@ -29,6 +31,7 @@ const reactionSchema = new Schema(
     }
 );
 
+// create schema for thoughts
 const thoughtSchema = new Schema(
     {
       thoughtText: {
@@ -56,7 +59,7 @@ const thoughtSchema = new Schema(
     }
 );
 
-// this virtual is for holding info on reactions' length
+// this virtual holds count for each user's reactions
   
 thoughtSchema.virtual("reactionCount").get(function () {
     return this.reactions.length;
